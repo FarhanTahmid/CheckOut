@@ -3,7 +3,7 @@ from django.db import DatabaseError
 from django.shortcuts import render,redirect
 import pyrebase
 
-from checkout_app.user.signup import User
+from checkout_app.user.signup import Users
 
 config={
     "apiKey": "AIzaSyCs-CW9vsD3jWGQOfyDznnvo5bg60g0gHo",
@@ -29,13 +29,16 @@ def signUp(request):
     if(request.method=="POST"):
         emailOrMobile=request.POST['mobile_or_email']
         password=request.POST['password']
-    User.userSignup(email_or_mobile=emailOrMobile,password=password)
+        
+        if(Users.userSignup(email_or_mobile=emailOrMobile,password=password)==False):
+            print("Email or Mobile already exists")
+            return redirect('checkout_app:signup')
+        else:
+            print("You are in homepage now")
     
-    
-    
-    
-    print(f"Website name is {database.child('Data').child('Name').get().val()}")
-    return render(request,'signup.html')
+    else:
+        return render(request,'signup.html')
+
 def login(request):
     '''Goes to login form from signup page upon signup true. accessible from index'''
     return render(request,'login.html')
