@@ -23,7 +23,7 @@ def homepage(request):
 def signUp(request):
     '''Goes to signup form from index page'''
     print(f"Website name is {database.child('Data').child('Name').get().val()}")
-    return render(request,'signUpForm.html')
+    return render(request,'signup.html')
 def login(request):
     '''Goes to login form from signup page upon signup true. accessible from index'''
-    return render(request,'loginPage.html')
+    return render(request,'login.html')

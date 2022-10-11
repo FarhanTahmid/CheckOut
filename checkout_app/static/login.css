@@ -1,0 +1,78 @@
+body {
+    color: #000;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+.display {
+    width: 100%;
+    height: 100%;
+    display:relative
+}
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+.logo {
+width: 488px;
+height: 225px;
+background-color: blue;
+}
+.input {
+    width: 100%;
+    height: 46px;
+    background: #fff;
+    border: 1px solid #4F4D4D;
+backdrop-filter: blur(2px);
+border-radius: 7px;
+}
+form .label {
+    margin-top: 10px!important;
+}
+.login {
+    margin-top: 20px;
+    background-color: #F04747;
+    color: #fff;
+    text-align: center;
+    border: none;
+}
+.facebook {
+    margin-top: 30px;
+    background-color: #3A559F;
+    opacity: 1;
+    width: 100%;
+    height: 53px;
+    border-radius: 6px;
+    border: none;
+}
+.google {
+    margin-top: 10px;
+    background-color: #ffffff;
+    opacity: 1;
+    width: 100%;
+    height: 53px;
+    border-radius: 6px;
+    border: 1px solid #4F4D4D;
+}
+.remember_me {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sign_up {
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+    color: #4F4D4D;
+}
+.sign_up a{
+    color: #4F4D4D;
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+letter-spacing: -0.02em;
+line-height: 20px;
+}

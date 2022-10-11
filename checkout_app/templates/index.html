@@ -11,7 +11,7 @@
 <body>
     <div class="header">
         <div class="logo-container">
-            <a href="/index.html"><img src="{% static 'Checkout-Logo.png' %}" alt="checkout-logo"></a>
+            <a href="{% url 'checkout_app:homepage' %}"><img src="{% static 'Checkout-Logo.png' %}" alt="checkout-logo"></a>
         </div>
         <div class="log-in-container">
             <button><a href="{% url 'checkout_app:login' %}" class="log_in">Log in</a></button>
