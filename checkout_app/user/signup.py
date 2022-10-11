@@ -1,6 +1,10 @@
+import email
+from checkout_app.models import Users
+
+
 class User:
-    
-    def __init__(self):
+    user=''
+    def __init__(self,user):
         pass
     
     
@@ -10,5 +14,10 @@ class User:
         
         
         #data to sql
+        newUser=Users.objects.create(
+            username=email_or_mobile,
+            email_or_mobile=email_or_mobile
+        )
+        
         #google signup
         #facebook signup

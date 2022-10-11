@@ -3,6 +3,8 @@ from django.db import DatabaseError
 from django.shortcuts import render,redirect
 import pyrebase
 
+from checkout_app.user.signup import User
+
 config={
     "apiKey": "AIzaSyCs-CW9vsD3jWGQOfyDznnvo5bg60g0gHo",
     "authDomain": "checkouttest-c5528.firebaseapp.com",
@@ -27,8 +29,7 @@ def signUp(request):
     if(request.method=="POST"):
         emailOrMobile=request.POST['mobile_or_email']
         password=request.POST['password']
-    print(emailOrMobile)
-    print(password)
+    User.userSignup(email_or_mobile=emailOrMobile,password=password)
     
     
     
