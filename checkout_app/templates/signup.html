@@ -6,19 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="../css/signup.css">
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
 </head>
 <body>
 <div class="display">
 <div class="center">
-    <div class="logo"><a href="{% url 'checkout_app:homepage' %}"><img src="{% static 'Checkout-Logo.png' %}"></a></div>
-    <form action="" method="post" class="login_form">
+    <div class="logo"><a href="{% url 'checkout_app:homepage' %}"><img src="{% static 'Checkout2.png' %}"></a></div>
+    <form action="signup" method="POST" class="login_form">
+        {% csrf_token %}
         <br>
         <label for="email_number" class="label inter"><b>Mobile/E-mail address</b></label><br>
-        <input class="input inter" type="email number" id="email_number" placeholder="Mobile/E-mail" required><br>
+        <input class="input inter" type="email number" id="email_number" name="mobile_or_email" placeholder="Mobile/E-mail" required><br>
         <br>
         <label for="password" class="label inter"><b>Create Password</b></label><br>
-        <input class="input inter" type="password" id="password" placeholder="Password" required><br>
+        <input class="input inter" type="password" id="password" name="password" placeholder="Password" required><br>
         <button type="submit" value="login" class="input signup inter">Sign Up</button><br>
         <div class="remember_me">
             <div>
