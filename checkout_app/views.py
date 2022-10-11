@@ -22,6 +22,17 @@ def homepage(request):
     return render(request, 'index.html')
 def signUp(request):
     '''Goes to signup form from index page'''
+    emailOrMobile=''
+    password=''
+    if(request.method=="POST"):
+        emailOrMobile=request.POST['mobile_or_email']
+        password=request.POST['password']
+    print(emailOrMobile)
+    print(password)
+    
+    
+    
+    
     print(f"Website name is {database.child('Data').child('Name').get().val()}")
     return render(request,'signup.html')
 def login(request):
