@@ -29,13 +29,13 @@ def signUp(request):
     if(request.method=="POST"):
         emailOrMobile=request.POST['mobile_or_email']
         password=request.POST['password']
-        
-        if(Users.userSignup(email_or_mobile=emailOrMobile,password=password)==False):
-            print("Email or Mobile already exists")
-            return redirect('checkout_app:signup')
-        else:
-            print("You are in homepage now")
-    
+        Users.userSignup(email_or_mobile=emailOrMobile,password=password)
+        # if(Users.userSignup(email_or_mobile=emailOrMobile,password=password)==False):
+        #     print("Email or Mobile already exists")
+        #     return redirect('checkout_app:signup')
+        # else:
+        #     print("You are in homepage now")
+        return redirect('checkout_app:signup')
     else:
         return render(request,'signup.html')
 

@@ -6,14 +6,14 @@ import string
 
 class Users:
     
-    def __init__(self,user):
-        pass
+    # def __init__(self):
+    #     pass
     
     def createUserName(email_or_mobile):
         """Generates a random username to the userprofile slicing entered email or mobile number"""
-        email_or_number=input("Enter mail: ")
+        email=email_or_mobile
         username=''
-        for x in email_or_number:
+        for x in email:
             if(x=='@' or x=='.'):
                 break
             else:
@@ -38,20 +38,22 @@ class Users:
     
     def userSignup(email_or_mobile,password):
         #django user signup
-        username=''
-        if(User.objects.filter(email=email_or_mobile).exists):
-            return False
-        elif User.objects.filter(username=username).exists():
-            return False
-        else:
-            user = User.objects.create_user(username=username, email=email, password=password)
-            user.save();
+        
+        username=Users.createUserName(email_or_mobile)
+        print(username)
+        # if(User.objects.filter(email=email_or_mobile).exists):
+        #     return False
+        # elif User.objects.filter(username=username).exists():
+        #     return False
+        # else:
+        #     user = User.objects.create_user(username=username, email=email, password=password)
+        #     user.save();
             
-        #data to sql
-        newUser=Users.objects.create(
-            username=email_or_mobile,
-            email_or_mobile=email_or_mobile
-        )
+        # #data to sql
+        # newUser=Users.objects.create(
+        #     username=email_or_mobile,
+        #     email_or_mobile=email_or_mobile
+        # )
         
         #google signup
         #facebook signup
