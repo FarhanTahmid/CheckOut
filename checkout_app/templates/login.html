@@ -13,10 +13,11 @@
 <div class="center">
     <div class="logo"><a href="{% url 'checkout_app:homepage' %}"><img src="{%static 'Checkout2.png' %}" alt="Checkout Logo"></a></div>
     <form action="" method="post" class="login_form">
+        {% csrf_token %}
         <label for="email_number" class="label ">Mobile/E-mail address</label><br>
-        <input class="input" type="email number" id="email_number" placeholder="Mobile/E-mail" required><br>
+        <input class="input" type="email number" id="email_number" name='email_or_mobile' placeholder="Mobile/E-mail" required><br>
         <label for="password" class="label">Password</label><br>
-        <input class="input" type="password" id="password" placeholder="Password" required><br>
+        <input class="input" type="password" id="password" name='password' placeholder="Password" required><br>
         <button type="submit" value="login" class="input login">Login</button><br>
         <div class="remember_me">
             <div>
