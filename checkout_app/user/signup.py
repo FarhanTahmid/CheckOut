@@ -3,8 +3,9 @@ from checkout_app.models import Users
 from django.contrib.auth.models import User,auth
 import random
 import string
+from checkout_app.user.generate import Generators
 
-class Users:
+class CommonUser:
     
     # def __init__(self):
     #     pass
@@ -32,28 +33,32 @@ class Users:
             s=random.randint(1,5)
             randomchars=''.join(random.choices(string.ascii_uppercase + string.digits, k=s)) #for mobile number signin, system assigns characters to their usernames by itself
             username=username+randomchars
-            
         return username
     
     
     def userSignup(email_or_mobile,password):
-        #django user signup
+        '''SignsUp user through django and their data to sql'''
         
-        username=Users.createUserName(email_or_mobile)
-        print(username)
-        # if(User.objects.filter(email=email_or_mobile).exists):
-        #     return False
-        # elif User.objects.filter(username=username).exists():
-        #     return False
-        # else:
-        #     user = User.objects.create_user(username=username, email=email, password=password)
-        #     user.save();
+        #django user signup
+        username=CommonUser.createUserName(email_or_mobile)
+        
+        if(User.objects.filter(email=email_or_mobile).exists()):
+            return False
+        elif (User.objects.filter(username=username).exists()):
+            return 'u'
+        else:
+            #Django user signup
+            user = User.objects.create_user(username=username, email=email_or_mobile, password=password)
+            user.save();
             
-        # #data to sql
-        # newUser=Users.objects.create(
-        #     username=email_or_mobile,
-        #     email_or_mobile=email_or_mobile
-        # )
+            #data to sql
+            newUser=Users.objects.create(
+            username=username,
+            email_or_mobile=email_or_mobile
+        )
+            return True
+        
+        
         
         #google signup
         #facebook signup
