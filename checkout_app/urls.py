@@ -9,5 +9,5 @@ urlpatterns=[
     # Home page
     path('', views.homepage, name='homepage'),
     path('signup',views.signUp,name='signup'),
-    path('login',views.login,name='login'),    
+    path('login',views.logIn,name='logIn'),    
 ]
