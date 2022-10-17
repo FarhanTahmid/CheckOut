@@ -1,6 +1,6 @@
 import email
 from checkout_app.models import Users
-from django.contrib.auth.models import User,auth
+from backend_core.models import CustomUserManager,User
 import random
 import string
 from checkout_app.user.generate import Generators
@@ -33,7 +33,10 @@ class CommonUser:
             s=random.randint(1,5)
             randomchars=''.join(random.choices(string.ascii_uppercase + string.digits, k=s)) #for mobile number signin, system assigns characters to their usernames by itself
             username=username+randomchars
-        return username
+        if (User.objects.filter(username=username).exists()):
+            CommonUser.createUserName(email)
+        else:
+            return username
     
     
     def userSignup(email_or_mobile,password):
@@ -42,13 +45,12 @@ class CommonUser:
         #django user signup
         username=CommonUser.createUserName(email_or_mobile)
         
-        if(User.objects.filter(email=email_or_mobile).exists()):
+        if(User.objects.filter(email_or_mobile=email_or_mobile).exists()):
             return False
-        elif (User.objects.filter(username=username).exists()):
-            return 'u'
+        
         else:
             #Django user signup
-            user = User.objects.create_user(username=username, email=email_or_mobile, password=password)
+            user = User.objects.create_user(email_or_mobile,password=password,username=username)
             user.save();
             
             #data to sql
