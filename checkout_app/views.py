@@ -38,9 +38,6 @@ def signUp(request):
         if(CommonUser.userSignup(email_or_mobile=emailOrMobile,password=password)==False):
             messages.info(request,"This email is already in use with another account")
             return redirect('checkout_app:signup')
-        elif(CommonUser.userSignup(email_or_mobile=emailOrMobile,password=password)=='u'):
-            signUp(request)
-            return redirect('checkout_app:signup')
         else:
             print("You are in homepage now")
             return redirect('checkout_app:signup')
