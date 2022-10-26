@@ -1,4 +1,6 @@
 import email
+from multiprocessing import connection
+from checkout_app.Database.connection import ConnectionToDb
 from checkout_app.models import Users
 from backend_core.models import CustomUserManager,User
 import random
@@ -45,25 +47,39 @@ class CommonUser:
         username=CommonUser.createUserName(email_or_mobile)
         
         #firebase signup
-        
-        
-        #django user signup
-        if(User.objects.filter(email_or_mobile=email_or_mobile).exists()):
-            return False
-        
-        else:
-            #Django user signup
-            user = User.objects.create_user(email_or_mobile,password=password,username=username)
-            user.save();
+        if(ord(username[-1])>58 and ord(username[:-1])<126):
+            #firebase phone signup
             
-            #data to sql
-            newUser=Users.objects.create(
-            username=username,
-            email_or_mobile=email_or_mobile
-        )
-            return True
-        
-        
-        
+            pass
+        else:
+            
+            connections=ConnectionToDb()
+            auth=connections.firebaseAuth()
+            
+            #django user signup
+            if(User.objects.filter(email_or_mobile=email_or_mobile).exists()):
+                return False
+            
+            else:
+                
+                #firebase email signup
+                try:
+                    firebaseUser=auth.create_user_with_email_and_password(email=email_or_mobile,password=password)
+                    data='' #have to collect data with googla api
+                except:
+                    pass
+                           
+                #Django user signup
+                try:
+                    user = User.objects.create_user(email_or_mobile,password=password,username=username)
+                    user.save();
+                except:
+                    pass
+                #data to sql
+                newUser=Users.objects.create(
+                username=username,
+                email_or_mobile=email_or_mobile
+            )
+                return True
         #google signup
         #facebook signup
