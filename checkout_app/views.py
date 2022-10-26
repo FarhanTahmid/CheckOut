@@ -1,5 +1,6 @@
 from distutils import errors
 from distutils.command.config import config
+from operator import imod
 from django.db import DatabaseError
 from django.contrib.auth.models import User,auth
 from django.contrib.auth import authenticate
@@ -9,15 +10,18 @@ import pyrebase
 from checkout_app.user.signup import CommonUser
 from checkout_app.user.generate import Generators
 from django.contrib import messages
+import environ
 
+env = environ.Env()
+environ.Env.read_env()
 config={
-    "apiKey": "AIzaSyCs-CW9vsD3jWGQOfyDznnvo5bg60g0gHo",
-    "authDomain": "checkouttest-c5528.firebaseapp.com",
+    "apiKey": env('apiKey'),
+    "authDomain": env('authDomain'),
     "databaseURL": "https://checkouttest-c5528-default-rtdb.firebaseio.com",
-    "projectId": "checkouttest-c5528",
+    "projectId": env('projectId'),
     "storageBucket": "checkouttest-c5528.appspot.com",
-    "messagingSenderId": "686410994548",
-    "appId": "1:686410994548:web:33493b9b0ce36cee2b9221",
+    "messagingSenderId": env('messagingSenderId'),
+    "appId": env('appId'),
 }
 firebase=pyrebase.initialize_app(config)
 auth=firebase.auth()

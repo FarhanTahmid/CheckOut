@@ -42,9 +42,12 @@ class CommonUser:
     def userSignup(email_or_mobile,password):
         '''SignsUp user through django and their data to sql'''
         
-        #django user signup
         username=CommonUser.createUserName(email_or_mobile)
         
+        #firebase signup
+        
+        
+        #django user signup
         if(User.objects.filter(email_or_mobile=email_or_mobile).exists()):
             return False
         
