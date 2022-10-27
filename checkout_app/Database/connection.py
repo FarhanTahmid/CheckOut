@@ -10,7 +10,7 @@ class ConnectionToDb:
         env = environ.Env()
         environ.Env.read_env()
         config={
-            'apiKey': env('apiKey'),
+            'apiKey': 'AIzaSyCfW6Co7nuWsCAanSdfo4yVfjkGw--JtZU',
             'authDomain': "checkout-8e376.firebaseapp.com",
             'databaseURL': "https://checkout-8e376-default-rtdb.firebaseio.com",
             'projectId': "checkout-8e376",
@@ -23,6 +23,7 @@ class ConnectionToDb:
     
     
     def firebaseAuth(self):
+        
         firebase=pyrebase.initialize_app(ConnectionToDb.defaultFirebaseConnection(self))
         auth=firebase.auth()
         return auth
