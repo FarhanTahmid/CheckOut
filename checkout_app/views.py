@@ -6,26 +6,10 @@ from django.contrib.auth.models import User,auth
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.shortcuts import render,redirect
-import pyrebase
 from checkout_app.user.signup import CommonUser
 from checkout_app.user.generate import Generators
 from django.contrib import messages
-import environ
 
-env = environ.Env()
-environ.Env.read_env()
-config={
-    "apiKey": env('apiKey'),
-    "authDomain": env('authDomain'),
-    "databaseURL": "https://checkouttest-c5528-default-rtdb.firebaseio.com",
-    "projectId": env('projectId'),
-    "storageBucket": "checkouttest-c5528.appspot.com",
-    "messagingSenderId": env('messagingSenderId'),
-    "appId": env('appId'),
-}
-firebase=pyrebase.initialize_app(config)
-auth=firebase.auth()
-database=firebase.database()
 
 
 # Create your views here.

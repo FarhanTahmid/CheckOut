@@ -1,6 +1,10 @@
 import email
+from multiprocessing import connection
+from sqlite3 import DataError
+
+from django.db import DatabaseError
+from checkout_app.Database.connection import ConnectionToDb
 from checkout_app.models import Users
-from backend_core.models import CustomUserManager,User
 import random
 import string
 from checkout_app.user.generate import Generators
@@ -33,7 +37,7 @@ class CommonUser:
             s=random.randint(1,5)
             randomchars=''.join(random.choices(string.ascii_uppercase + string.digits, k=s)) #for mobile number signin, system assigns characters to their usernames by itself
             username=username+randomchars
-        if (User.objects.filter(username=username).exists()):
+        if (Users.objects.filter(username=username).exists()):
             CommonUser.createUserName(email)
         else:
             return username
@@ -45,25 +49,43 @@ class CommonUser:
         username=CommonUser.createUserName(email_or_mobile)
         
         #firebase signup
-        
-        
-        #django user signup
-        if(User.objects.filter(email_or_mobile=email_or_mobile).exists()):
-            return False
-        
-        else:
-            #Django user signup
-            user = User.objects.create_user(email_or_mobile,password=password,username=username)
-            user.save();
+        if(ord(username[-1])>58 and ord(username[:-1])<126):
+            #firebase phone signup
             
-            #data to sql
-            newUser=Users.objects.create(
-            username=username,
-            email_or_mobile=email_or_mobile
-        )
-            return True
-        
-        
-        
+            pass
+        else:
+            
+            connections=ConnectionToDb()
+            auth=connections.firebaseAuth()
+            
+            #django user signup
+            if(Users.objects.filter(email_or_mobile=email_or_mobile).exists()):
+                return False
+            
+            else:
+                
+                #firebase email signup
+                try:
+                    firebaseUser=auth.create_user_with_email_and_password(email=email_or_mobile,password=password)
+                    #data='' #have to collect data with googla api
+                except:
+                   raise DatabaseError
+                           
+                #Django user signup
+                try:
+                    user = Users.objects.create_user(email_or_mobile,password=password,username=username)
+                    user.save();
+                except:
+                    raise DatabaseError
+                #data to sql
+                try:
+                    newUser=Users.objects.create(
+                    username=username,
+                    email_or_mobile=email_or_mobile
+                
+                    )
+                except:
+                    raise DataError
+                return True
         #google signup
         #facebook signup
