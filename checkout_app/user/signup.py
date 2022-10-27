@@ -1,5 +1,8 @@
 import email
 from multiprocessing import connection
+from sqlite3 import DataError
+
+from django.db import DatabaseError
 from checkout_app.Database.connection import ConnectionToDb
 from checkout_app.models import Users
 import random
@@ -62,23 +65,27 @@ class CommonUser:
             else:
                 
                 #firebase email signup
-                #try:
-                firebaseUser=auth.create_user_with_email_and_password(email=email_or_mobile,password=password)
+                try:
+                    firebaseUser=auth.create_user_with_email_and_password(email=email_or_mobile,password=password)
                     #data='' #have to collect data with googla api
-                #except:
-                #   print("Some error occured")
+                except:
+                   raise DatabaseError
                            
                 #Django user signup
                 try:
                     user = Users.objects.create_user(email_or_mobile,password=password,username=username)
                     user.save();
                 except:
-                    pass
+                    raise DatabaseError
                 #data to sql
-                newUser=Users.objects.create(
-                username=username,
-                email_or_mobile=email_or_mobile
-            )
+                try:
+                    newUser=Users.objects.create(
+                    username=username,
+                    email_or_mobile=email_or_mobile
+                
+                    )
+                except:
+                    raise DataError
                 return True
         #google signup
         #facebook signup
