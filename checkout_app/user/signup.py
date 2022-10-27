@@ -2,7 +2,6 @@ import email
 from multiprocessing import connection
 from checkout_app.Database.connection import ConnectionToDb
 from checkout_app.models import Users
-from backend_core.models import CustomUserManager,User
 import random
 import string
 from checkout_app.user.generate import Generators
@@ -35,7 +34,7 @@ class CommonUser:
             s=random.randint(1,5)
             randomchars=''.join(random.choices(string.ascii_uppercase + string.digits, k=s)) #for mobile number signin, system assigns characters to their usernames by itself
             username=username+randomchars
-        if (User.objects.filter(username=username).exists()):
+        if (Users.objects.filter(username=username).exists()):
             CommonUser.createUserName(email)
         else:
             return username
@@ -57,21 +56,21 @@ class CommonUser:
             auth=connections.firebaseAuth()
             
             #django user signup
-            if(User.objects.filter(email_or_mobile=email_or_mobile).exists()):
+            if(Users.objects.filter(email_or_mobile=email_or_mobile).exists()):
                 return False
             
             else:
                 
                 #firebase email signup
-                try:
-                    firebaseUser=auth.create_user_with_email_and_password(email=email_or_mobile,password=password)
-                    data='' #have to collect data with googla api
-                except:
-                    pass
+                #try:
+                firebaseUser=auth.create_user_with_email_and_password(email=email_or_mobile,password=password)
+                    #data='' #have to collect data with googla api
+                #except:
+                #   print("Some error occured")
                            
                 #Django user signup
                 try:
-                    user = User.objects.create_user(email_or_mobile,password=password,username=username)
+                    user = Users.objects.create_user(email_or_mobile,password=password,username=username)
                     user.save();
                 except:
                     pass

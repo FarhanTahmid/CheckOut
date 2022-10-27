@@ -6,7 +6,6 @@ from django.contrib.auth.models import User,auth
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.shortcuts import render,redirect
-import pyrebase
 from checkout_app.user.signup import CommonUser
 from checkout_app.user.generate import Generators
 from django.contrib import messages

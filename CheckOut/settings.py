@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'checkout_app',
-    'backend_core',
+    
 ]
 
 MIDDLEWARE = [
@@ -51,7 +51,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-AUTH_USER_MODEL='backend_core.User'
 
 ROOT_URLCONF = 'CheckOut.urls'
 
