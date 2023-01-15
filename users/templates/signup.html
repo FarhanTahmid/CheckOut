@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+</head>
+<body>
+<div class="display">
+<div class="center">
+    <div class="logo"><a href="{% url 'checkout_site:homepage' %}"><img src="{% static 'Checkout2.png' %}"></a></div>
+    <form method="POST" class="login_form">
+        {% csrf_token %}
+        <br>
+        <label for="username" class="label inter"><b>Username</b></label><br>
+        <input class="input inter" type="text" id="username" name="username" placeholder="Username" required><br>
+        
+        <label for="email_number" class="label inter"><b>E-mail</b></label><br>
+        <input class="input inter" type="email number" id="email_number" name="email" placeholder="E-mail" required><br>
+        <br>
+        
+        <label for="password" class="label inter"><b>Create Password</b></label><br>
+        <input class="input inter" type="password" id="password" name="password" placeholder="Password" required><br>
+        
+        <label for="password" class="label inter"><b>Confirm Password</b></label><br>
+        <input class="input inter" type="password" id="password" name="confirm_password" placeholder="Confirm Password" required><br>
+       
+        <input name="signup_button" type="submit" value="Signup" class="input signup inter"></input><br>
+        <div class="remember_me">
+            <div>
+            <input type="checkbox" class="checkbox">
+            <span class="remeber_text inter">Remember me</span></div>
+        </div>
+
+    </form>
+    <form method="POST">
+        {% csrf_token %}
+        <input name="facebook_signup_button" value="Sign Up with Facebook" type="submit" class="social facebook inter"></input><br>
+        <input name="google_signup_button" value="Sign Up with Google" type="submit" class="social google inter"></input><br>
+    
+    </form>
+    
+</div>
+</div>
+</body>
+</html>

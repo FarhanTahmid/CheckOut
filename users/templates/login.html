@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+<body>
+<div class="display">
+<div class="center">
+    <div class="logo"><a href="{% url 'checkout_site:homepage' %}"><img src="{%static 'Checkout2.png' %}" alt="Checkout Logo"></a></div>
+    <form action="" method="post" class="login_form">
+        {% csrf_token %}
+        <label for="email_number" class="label ">Mobile/E-mail address</label><br>
+        <input class="input" type="email number" id="email_number" name='email_or_mobile' placeholder="Mobile/E-mail" required><br>
+        <label for="password" class="label">Password</label><br>
+        <input class="input" type="password" id="password" name='password' placeholder="Password" required><br>
+        <input type="submit" name="login_button" value="Login" class="input login"></input><br>
+        <div class="remember_me">
+            <div>
+            <input type="checkbox">
+            <span class="remeber_text">Remember me</span></div>
+            <a href="#">Forgot password?</a>
+        </div>
+    </form>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" name="facebook_login" value="Continue with Facebook" class="social facebook"></input><br>
+        <input type="submit" name="google_login" value="Continue with Google" class="social google"></input><br>
+    </form>
+    <div class="sign_up">
+    Don't have an account?
+    <a href="{% url 'users:signup' %}"><b>Click here to Sign Up</b></a>
+    </div>
+</div>
+</div>
+</body>
+</html>

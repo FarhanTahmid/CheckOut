@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <a href=""><img src="{% static 'Checkout-Logo.png' %}" alt="checkout-logo"></a>
+        </div>
+        <div class="log-in-container">
+            <button><a href="{% url 'users:login' %}" class="log_in">Log in</a></button>
+        </div>
+    </div>
+    <div class="dropdown-section">
+    <div class="dropdown1">
+        <button class="dropbtn">Restaurant Type</button>
+        <div class="dropdown-content">
+          <a href="#">Burger Joint</a>
+          <a href="#">Pizza</a>
+          <a href="#">Coffee and Juices</a>
+          <a href="#">Kacchi</a>
+          <a href="#">Sushi</a>
+        </div>
+      </div>
+      <div class="dropdown2">
+        <button class="dropbtn">Location</button>
+        <div class="dropdown-content">
+          <a href="#">Mohammadpur</a>
+          <a href="#">Dhanmondi</a>
+          <a href="#">Mirpur</a>
+          <a href="#">Bailey Road</a>
+          <a href="#">Khilgaon</a>
+        </div>
+      </div>
+      </div>
+      <div class="paragraph">
+      <div id="features-head"><p>Add features for your Restaurant</p></div>
+      </div>
+      <div class="checkboxes1">
+        <input type="checkbox">Rooftop
+        <input type="checkbox">Smoking Zone
+        <input type="checkbox">Open Space
+        <input type="checkbox">Live Concert
+      </div>
+      <div class="checkboxes2">
+        <input type="checkbox">Ambience
+        <input type="checkbox">photoshoot
+        <input type="checkbox">Theme Based
+        <input type="checkbox">Chinese
+      </div>
+</body>
+</html>
