@@ -24,6 +24,7 @@ def signup(request):
             password=request.POST['password']
             confirm_password=request.POST['confirm_password']
             if(password==confirm_password):
+                #if password and confirm password matches save the user in database
                 user=Registered_Users(
                     username,email
                 )
