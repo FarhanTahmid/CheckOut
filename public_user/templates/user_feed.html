@@ -13,37 +13,10 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        login signup page
-        <a href="{% url 'social:begin' 'facebook++++++++++++++++++++++++++
+        {% if user.is_authenticated %}
+            welcome {{user.username}}
+        {% endif %}
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        ' %}">Login With Facebook</a>
         <script src="" async defer></script>
     </body>
 </html>
