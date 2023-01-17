@@ -6,7 +6,7 @@ class signed_up_user(models.Model):
     email=models.EmailField(null=False,blank=False)
     
     class Meta:
-        verbose_name="Signed in Users in Site"
+        verbose_name="Signed in Users in Checkout Site"
 
         def __str__(self) -> str:
             return self.username

@@ -41,10 +41,6 @@ INSTALLED_APPS = [
     'checkout_site',
     'public_user',
     'django.contrib.sites',
-    'allauth'
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
     
 ]
 SITE_ID = 1
