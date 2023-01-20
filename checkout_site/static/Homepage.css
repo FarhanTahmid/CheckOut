@@ -1,0 +1,212 @@
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.image-banner{
+    background-image: url(paula-vermeulen-URjZkhqsuBk-unsplash.jpg);
+    width: 100%;
+    min-height: 40vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 78%;
+}
+
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+nav img{
+    position: absolute;
+    width: 290px;
+    left: 5%;
+    top: 6%;
+}
+
+
+.search-bar{
+    position: absolute;
+    top:12%;
+    left:53%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    width: 53%;
+    height: 6%;
+    background: #FFFFFF;
+    border-radius: 4px;
+}
+.searchtext{
+    position: absolute;
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    line-height: 60px;
+    width: 97%;
+    height: 100%;
+    background:white;
+    color: black;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 23px;
+    padding-left: 30px;
+    border-radius: 4px;
+}
+.login{
+    position: absolute;
+    top:10%;
+    left:85%;
+    width: 151px;
+    height: 37px;
+    background:transparent;
+    border-radius: 5px;
+    border: 0.5px solid #FFFF;
+    border-style: solid;
+    text-decoration: none;
+    cursor: pointer;
+} 
+.logintext{ 
+    
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px;
+    color: #FFFFFF;
+    background:transparent;
+    text-align: center;
+    text-decoration: none;
+    line-height: 35px;
+
+}
+
+.logintext:hover{
+    color: black;
+    background-color: #F4F4F4;
+    cursor: pointer;
+    transition: 0.3s;
+} 
+
+
+
+
+
+.dropbox{
+    display: flex;
+    justify-content: space-between;
+    background-color:  #FFFF;
+    padding: 2% 31%;
+    align-items: center;  
+    font-family: 'Inter';
+    font-style: normal;
+}
+
+.dropdown{
+    border-radius: 5px;
+    position: relative;
+    font-weight: 500;
+    font-size: 23px;
+
+}
+
+.select{
+    background:#F4F4F4;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 253px;   
+    height: 77px;
+    line-height: 80px;
+    padding-left: 20px;
+    padding-right:20px;
+    font-weight: 500;
+    
+}
+
+.select:hover{
+    background: #e0e0e0;
+    transition: 0.3s;
+}
+
+.selected{
+    padding-left: 10%;
+}
+
+.caret{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid black;
+    transition: 0.3s;
+    margin-right: 5px;
+    
+}
+.caret-rotate{
+    transform: rotate(180deg);
+}
+
+
+.menu{
+    list-style: none;
+    font-size: 20px;
+    padding: 10px 0.5em;
+    background:#F4F4F4;
+    box-shadow: 0 0.2em 0.4em #E5E5E5;
+    border-radius:5px;
+    margin-top: 10px;
+}
+
+.menu li{
+    padding: 0.6em 0.5em;
+    margin: 0.1em 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 300;
+    
+    /* padding-left: 10px; */
+}
+
+.menu li:hover{
+    cursor: pointer;
+    background: #e0e0e0;
+    transition: 0.3s;
+}
+
+.features{
+    min-width: 37%;
+    min-height: 30px;
+    position: absolute;
+    top: 79%;
+    left: 31%;
+    /* transform: translate(-50%,-50%); */
+    background: #F26D6D;
+    color: white;
+    border-radius: 4px;
+    padding: 10px 10px;
+}
+
+.features p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    padding-left: 15px;
+}
+
+
+

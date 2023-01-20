@@ -1,0 +1,224 @@
+
+
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background-image: url(Screenshot1.png);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    opacity: 82%;
+    filter: blur(2px) brightness(90%);
+}
+
+.form{
+    display: flex;
+    position: absolute;
+    top:30%;
+    left:28%;
+}
+.formpic{
+    background-color: rgb(200, 199, 199);
+    position: relative;
+
+    width: 448px;
+    border-radius: 9px 0px 0px 9px;
+    box-shadow: 0 0.1em 0.1em #807d7d;
+}
+.pic{
+    height: 600px;
+}
+
+
+.checkout{
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    top: 40%;
+} 
+
+form{
+    background-color: white;
+    position: relative;
+    width: 448px;
+    height:600px;
+    border-radius: 9px;
+    box-shadow: 0 0.1em 0.3em #807d7d;
+    right:7px;
+    font-family: 'Inter';
+    font-style: normal;
+}
+
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+button{
+    width: 122px;
+    height: 50px;
+    border-style: none;
+    font-weight: 600;
+    /* background-color: #EA4343;
+    color: white; */
+    font-size:16px;
+}
+
+
+
+#signupbutton{
+    border-radius: 0px 4px 4px 0px;
+    background-color: #EA4343;
+    cursor: pointer;
+}
+
+#signupbutton:hover{
+    background-color: #dc0b0b;
+    transition: 0.3s;
+}
+
+#loginbutton{
+    border-radius: 4px 0px 0px 4px;
+    background-color: #EAEAEA;
+    color: black;
+    cursor: pointer;
+}
+#loginbutton:hover{
+    background-color: #cdcbcb;
+    transition: 0.3s;
+}
+
+.input-group{
+    padding-top: 40px;
+    padding-left: 75px;
+}
+
+.input-field p1,p2{
+    display:block;
+    font-size: 15px;
+    font-weight:900;
+    margin-bottom: 6px;
+    
+    /* padding-top:10px; */
+}
+
+.input-field input{
+
+    margin-bottom: 12px;
+    display: block;
+    width: 300px;
+    height: 40px;
+    border-radius: 9px;
+    border-style: none;
+    border: 0.5px solid black;
+    padding-left: 10px;
+    font-size: 15px;
+    font-family: 'Inter';
+    font-style: normal;
+}
+
+
+.submitbtn{
+    margin-top: 30px;
+    width:300px;
+    height: 40px;
+    border-style: none;
+    border-radius: 7px;
+    color: white;
+    background: #F04747;
+    cursor: pointer;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 18px;
+}
+
+.submitbtn:hover{
+    background-color: #de2d2d;
+    transition: 0.3s;
+}
+
+.recovery{
+    padding-top: 5px;
+    padding-left: 5px;
+    display: flex;
+    font-size: 13px;
+}
+
+
+.recovery label{
+    padding-left: 8px;
+}
+
+.recovery a{
+    padding-left: 80px;
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+}
+
+
+
+.FBlogin{
+    display: block;
+    width:300px;
+    height: 44.02px;
+    background: rgba(58, 85, 159, 0.7);
+    color: white;
+    border-radius: 6px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 15px;
+    font-weight: 600;
+    border-style: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.googlelogin{
+
+    display: block;
+    width:300px;
+    height: 44.02px;
+    background:  #FFFFFF;
+    border-radius: 6px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 15px;
+    font-weight: 600;
+    border: 0.5px solid black;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+form p{
+    padding-left: 20px;
+    padding-top: 40px;
+    font-weight: 500;
+    font-size: small;
+}
+form p a{
+    padding-top: 40px;
+    font-weight: 900;
+    color: black;
+}
+
+
+
+
+.transition-fade {
+    transition: 0.4s;
+    opacity: 1;
+  }
+  
+  html.is-animating .transition-fade {
+    opacity: 0;
+  }
+  

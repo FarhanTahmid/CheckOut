@@ -1,0 +1,63 @@
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script defer src="{% static 'node_modules/swup/dist/swup.min.js' %}"></script>
+    <script defer src="{% static 'script.js'%}"></script>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+
+    <title>Signup</title>
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+    </div>
+    <section class="form">
+        <div class="formpic">
+            <img src="{% static 'jimmy-dean-Yn0l7uwBrpw-unsplash1.png' %}" style="border-radius: 9px 0px 0px 9px;" class="pic">
+            <img src="{% static 'Checkout-pngwebwhite.png' %}" class="checkout">
+        </div>
+
+        <main id="swup" class="transition-fade">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="buttons">
+                    <a href="{% url 'public_user:login' %}">
+                        <button type="button" id="loginbutton">Login</button>
+                    </a>
+                    <button type="button" id="signupbutton">Sign Up</button>
+                </div>
+                <div class="input-group">
+                    <div class="input-field">
+                        <p1>Username</p1>
+                        <input type="text" required placeholder="Username" name="username">
+                    </div>
+                    <div class="input-field" id="namefield">
+                        <p2>Email</p2>
+                        <input type="email" required placeholder="E-mail" name="email">
+                    </div>
+                    <div class="input-field">
+                        <p2>Password</p2>
+                        <input type="password" required placeholder="Password" minlength="8" name="password">
+                    </div>
+                    <div class="input-field" id="namefield2">
+                        <p2> Confirm password</p2>
+                        <input type="password" required placeholder="Confirm password" name="confirm_password">
+                    </div>
+                    <input type="submit" value="Sign Up" name="signup" class="submitbtn">
+                    <div class="warning_message">
+                    {% for messages in messages %}
+                    <p>{{messages}}</p>
+                    {% endfor %}
+                    </div>
+            </form>
+        </main>
+    </section>
+</body>
+</html>

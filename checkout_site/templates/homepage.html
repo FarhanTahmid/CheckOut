@@ -1,23 +1,80 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>
-            Homepage of checkout
-            <a href="{% url 'public_user:login_signup_page' %}">hello</a>
-        </h1>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'Homepage.css' %}">
+    <!-- login font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--search font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300&family=Outfit:wght@200&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <section class="image-banner">
+            <nav>
+                <a href="{% url 'checkout_site:landing_page' %}"><img src="{% static 'Checkout-pngwebwhite.png' %}"></a>
+                <form action="">
+                    <div class="search-bar">
+                        <input class="searchtext" type="text" placeholder="Search.." name="search">
+                    </div>
+                </form>
+                <form action="">
+                    <div class="login">
+                        <a class="logintext" href="{% url 'public_user:login' %}"> Login/Sign up </a>
+
+                    </div>
+                </form>
+                
+            </nav>
+
+        </section>
+    </header>
+    <main>
         
-        <script src="" async defer></script>
-    </body>
+        <section class="dropbox">
+            <div class="dropdown">
+                <div class="select">
+                    <span class="selected">Restaurant Type</span>
+                    <div class="caret"></div>
+                </div>
+                <ul class="menu">
+                    <li>Burger</li>
+                    <li class="active">Pizza</li>
+                    <li>Shawarma</li>
+                    <li>Sushi</li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <div class="select">
+                    <span class="selected">Select Location</span>
+                    <div class="caret"></div>
+                </div>
+
+                <ul class="menu">
+                    <li>Dhaka</li>
+                    <li>Mirpur</li>
+                    <li class="active">Uttara</li>
+                    <li>Banani</li>
+                </ul>
+            </div>
+        </section>
+        <div class="features">
+            <p> Add Features For Your Restaurant:</p>
+        </div>
+
+    </main>
+    <footer>
+    </footer>
+    
+</body>
+<!-- <script src="dropdown.js"></script> -->
 </html>
+

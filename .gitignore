@@ -104,6 +104,7 @@ ENV/
 env.bak/ 
 venv.bak/
 farhan_checkout/
+checkout_env/
 
 # mkdocs documentation 
 /site 
