@@ -136,9 +136,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-import environ
-env=environ.Env()
-environ.Env.read_env()
+# import environ
+# env=environ.Env()
+# environ.Env.read_env()
 
-SOCIAL_AUTH_FACEBOOK_KEY=env('facebook_key')
-SOCIAL_AUTH_FACEBOOK_SECRET=env('facebook_secret')
+# SOCIAL_AUTH_FACEBOOK_KEY=env('facebook_key')
+# SOCIAL_AUTH_FACEBOOK_SECRET=env('facebook_secret')
