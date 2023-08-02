@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'checkout_site',
     'public_user',
     'django.contrib.sites',
+    'system',
     
 ]
 SITE_ID = 1
@@ -131,14 +132,20 @@ USE_TZ = True
 
 import os
 STATIC_URL = 'static/'
+#static directory
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+STATICFIlES_DIRS=(os.path.join(BASE_DIR,'static'))
+#Media Files
+MEDIA_ROOT= os.path.join(BASE_DIR, 'User Files/')
+MEDIA_URL= "/media_files/" 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-import environ
-env=environ.Env()
-environ.Env.read_env()
+# import environ
+# env=environ.Env()
+# environ.Env.read_env()
 
-SOCIAL_AUTH_FACEBOOK_KEY=env('facebook_key')
-SOCIAL_AUTH_FACEBOOK_SECRET=env('facebook_secret')
+# SOCIAL_AUTH_FACEBOOK_KEY=env('facebook_key')
+# SOCIAL_AUTH_FACEBOOK_SECRET=env('facebook_secret')
